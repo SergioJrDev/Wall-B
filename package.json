@@ -1,0 +1,26 @@
+{
+  "name": "B-Wally",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --color",
+    "parcel": "parcel watch public/index-dist.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ccxt": "^1.10.1000"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "css-loader": "^0.28.9",
+    "extract-loader": "^1.0.2",
+    "file-loader": "^1.1.6",
+    "html-loader": "^0.5.5",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
