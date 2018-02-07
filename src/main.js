@@ -12,7 +12,7 @@ let maxPercent = 2
 const setNow = (data, update = false) => {
     const { last: value } = data
     if(!now || update) {
-        console.log('Atualiza valor base', update, value)
+        console.log('Atualiza valor base', value)
         now = value
     }
     return data
@@ -24,18 +24,19 @@ const loop = setInterval(() => {
         .then(setNow)
         .then((data) => {
             const { last } = data
+            console.log('>>>>>>>', last, '<<<<<<<')
             if(last > now) {
-                console.log('Vende', last, now)
+                console.log('^^^^^^^Vende^^^^^^, lucro', last - now)
                 setNow(data, true)
             } else if (last < now) {
-                console.log('Compra', last, now)
+                console.log('*********Compra********')
                 setNow(data, true)
             }
         })
     // if(count >= 5) {
     //     clearInterval(loop)
     // }
-}, 5000)
+}, 3000)
 
 function init() {
     
