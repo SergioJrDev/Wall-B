@@ -959,7 +959,7 @@ var _app = __webpack_require__(28);
 
 var _app2 = _interopRequireDefault(_app);
 
-__webpack_require__(30);
+__webpack_require__(29);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18288,8 +18288,6 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(29);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Hello = function Hello() {
@@ -18304,12 +18302,6 @@ exports.default = Hello;
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 30 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

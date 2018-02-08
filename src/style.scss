@@ -1,5 +1,11 @@
 * {
-  background:  #333;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-image: url('./assets/ll.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
