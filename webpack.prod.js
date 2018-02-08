@@ -56,6 +56,22 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Wall-B',
+            minify: {
+                collapseWhitespace: true,
+                preserveLineBreaks: true,
+                collapseInlineTagWhitespace: true
+              },
+            inject: false,
+            template: require('html-webpack-template'),
+            meta: [
+                {
+                  name: 'description',
+                  content: 'A better default template for html-webpack-plugin.'
+                }
+              ],
+              mobile: true,
+              lang: 'pt-BR',
+              bodyHtmlSnippet: '<div id="root"></div>',
         }),
         //if you want to pass in options, you can do so:
         new ExtractTextPlugin({
