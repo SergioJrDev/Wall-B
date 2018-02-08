@@ -1,5 +1,6 @@
 const path = require('path');
 const indexHtml = path.join(__dirname, "src/index.html");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   devtool: "source-map",
@@ -66,5 +67,8 @@ module.exports = {
         ],
     },
   ]
-  }
+  },
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
 }

@@ -32,6 +32,7 @@
     "html-loader": "^0.5.5",
     "jest": "^22.2.1",
     "webpack": "^3.10.0",
+    "webpack-bundle-analyzer": "^2.10.0",
     "webpack-dev-server": "^2.11.1"
   }
 }
