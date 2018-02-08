@@ -12,15 +12,25 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ccxt": "^1.10.1000"
+    "axios": "^0.17.1",
+    "ccxt": "^1.10.1000",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",
     "cors-anywhere": "^0.4.1",
     "css-loader": "^0.28.9",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "extract-loader": "^1.0.2",
     "file-loader": "^1.1.6",
     "html-loader": "^0.5.5",
+    "jest": "^22.2.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }
