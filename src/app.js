@@ -1,5 +1,20 @@
 import React from 'react'
+import ccxt from 'ccxt'
 
-const Hello = () => <p>Hello Reacts</p>
+class App extends React.Component {
+    // componentDidMount() {
+    //     const mercado = new ccxt.dsx()
+    //     mercado.loadMarkets()
+    //     mercado
+    //         .fetchTicker('BTC/USD')
+    //         .then(({ last: data }) => console.log(data))
+    // }
 
-export default Hello
+    render() {
+        return(
+            <h1>Wall-B</h1>
+        )
+    }
+}
+
+export default App

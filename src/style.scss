@@ -3,8 +3,20 @@
   padding: 0;
 }
 
+#root { 
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 10rem;
+  color: #4b5d9e
+}
+
 body {
-  background-image: url('./assets/ll.jpg');
+  background-image: url('./assets/bitcoin.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
