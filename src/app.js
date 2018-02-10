@@ -1,5 +1,6 @@
 import React from 'react'
 import ccxt from 'ccxt'
+import { connect } from 'react-redux'
 
 class App extends React.Component {
     // componentDidMount() {
@@ -11,10 +12,18 @@ class App extends React.Component {
     // }
 
     render() {
+      console.log(this.props)
         return(
             <h1>Wall-B</h1>
         )
     }
 }
 
-export default App
+const mapStateToProps = ({ ticket }, props) => {
+  return {
+    ticket,
+    ...props
+  }
+}
+
+export default connect(mapStateToProps)(App)
