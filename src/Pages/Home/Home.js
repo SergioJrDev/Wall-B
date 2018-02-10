@@ -26,7 +26,10 @@ class Home extends React.Component {
     render() {
       const { ticket } = this.props
       return(
-          <Chart data={ticket} />
+          <Chart
+            // Descomentar para mostrar no gráfico
+            // data={ticket}
+            />
       )
     }
 }
