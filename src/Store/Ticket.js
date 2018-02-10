@@ -1,13 +1,13 @@
 import Store from './DefaultStore'
+const { ticket } = Store
 
 const SET_TICKET = 'SET_TICKET'
-const { ticket } = Store
 
 export default function reducer(state = ticket, action) {
  const { type, payload } = action
  switch (type) {
    case SET_TICKET:
-     return state.concat(payload)
+     return { ...state, ...payload }
      break;
    default:
      return state;
