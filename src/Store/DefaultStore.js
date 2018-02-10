@@ -1,5 +1,5 @@
 const DefaultStore = {
-  ticket: {}
+  ticket: [],
 }
 
 export default DefaultStore

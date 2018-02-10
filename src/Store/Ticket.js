@@ -7,7 +7,7 @@ export default function reducer(state = ticket, action) {
  const { type, payload } = action
  switch (type) {
    case SET_TICKET:
-     return { ...state, payload }
+     return state.concat(payload)
      break;
    default:
      return state;
