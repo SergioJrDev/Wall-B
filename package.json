@@ -8,6 +8,9 @@
     "start": "webpack-dev-server --color",
     "parcel": "parcel watch public/index-dist.html"
   },
+  "engines": {
+    "node": "8.9.4"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
