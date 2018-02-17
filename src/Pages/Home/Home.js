@@ -17,14 +17,29 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        this.UpdateBitcoinValue();
-        setInterval(this.UpdateBitcoinValue, 10000);
+      const key = '851200fc344b8866d17959a6ef6a179f'
+      const secret = 'af6c5e3d0665eb053009d8461e41e329d0ca3c477ce4ee4bba2b674865088b2e'
+      this.UpdateBitcoinValue();
+      setInterval(this.UpdateBitcoinValue, 10000);
+      const mercado = new ccxt.mercado();
+      mercado.loadMarkets();
+      mercado.apiKey = key
+      mercado.secret = secret
+      mercado.fetchBalance()
+        .then(data => console.log('data', data))
+        .catch(err => console.log(err))
     }
 
     render() {
       const { ticket } = this.props
+      const { day, hour, week, month, month_3, value } = ticket
       return(
-        <CardDetails {...ticket} />
+        <div>
+          {(day && hour && week && month && month_3 && value) ? (
+            <CardDetails {...ticket} />
+          ) : <p>Carregando...</p>}
+          
+        </div>
       )
     }
 }

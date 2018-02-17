@@ -8,6 +8,7 @@ module.exports = {
     target: "web",
     entry: [
         "./src/index.js",
+        "webpack-dev-server/client?http://0.0.0.0:8080",
         indexHtml,
     ],
     resolve: {
@@ -18,12 +19,19 @@ module.exports = {
         filename: "bundle.js",
     },
     devServer: {
-        contentBase: path.join(__dirname, "src"),
-        compress: true,
-        port: 3000,
-        open: true,
-        watchContentBase: true,
-        inline: true,
+      contentBase: path.join(__dirname, "src"),
+      compress: true,
+      port: 8080,
+      open: true,
+      watchContentBase: true,
+      inline: true,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Max-Age': '3600',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, x-id, Content-Length, X-Requested-With',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
+      },
     },
     module: {
         rules: [
