@@ -83237,6 +83237,18 @@ var Home = function (_React$Component) {
     value: function componentDidMount() {
       this.UpdateBitcoinValue();
       setInterval(this.UpdateBitcoinValue, 10000);
+
+      var mercado = new _ccxt2.default.mercado();
+      var key = '851200fc344b8866d17959a6ef6a179f';
+      var secret = 'af6c5e3d0665eb053009d8461e41e329d0ca3c477ce4ee4bba2b674865088b2e';
+      mercado.loadMarkets();
+      mercado.apiKey = key;
+      mercado.secret = secret;
+      mercado.fetchBalance().then(function (data) {
+        return console.log('data', data);
+      }).catch(function (err) {
+        return console.log(err);
+      });
     }
   }, {
     key: 'render',
@@ -100434,6 +100446,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
@@ -100442,109 +100456,141 @@ var _Utils = __webpack_require__(737);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var listClass = "list flex pa2 justify-between b--light-gray";
-var CardDetails = function CardDetails(_ref) {
-  var day = _ref.day,
-      hour = _ref.hour,
-      week = _ref.week,
-      month = _ref.month,
-      month_3 = _ref.month_3,
-      value = _ref.value;
+var Loading = function Loading() {
   return _react2.default.createElement(
-    'div',
-    { className: 'cupom pt3 pb1 min-w-300 bg-white' },
-    _react2.default.createElement(
-      'h2',
-      { className: 'pl2' },
-      'Bitcoin'
-    ),
-    _react2.default.createElement(
-      'span',
-      { className: 'pl2 mb2 db fw8 fs2' },
-      '$',
-      value
-    ),
-    _react2.default.createElement(
-      'ul',
-      null,
-      _react2.default.createElement(
-        'li',
-        { className: 'bb list flex pa2 justify-between b--light-gray' },
-        _react2.default.createElement(
-          'span',
-          null,
-          '\xDAltima hora'
-        ),
-        _react2.default.createElement(
-          'span',
-          { className: '' + ((0, _Utils.IsNegative)(hour) ? "isNegative" : "isPositive") },
-          hour,
-          '%'
-        )
-      ),
-      _react2.default.createElement(
-        'li',
-        { className: 'bb list flex pa2 justify-between b--light-gray' },
-        _react2.default.createElement(
-          'span',
-          null,
-          '\xDAltimo Dia'
-        ),
-        _react2.default.createElement(
-          'span',
-          { className: '' + ((0, _Utils.IsNegative)(day) ? "isNegative" : "isPositive") },
-          day,
-          '%'
-        )
-      ),
-      _react2.default.createElement(
-        'li',
-        { className: 'bb list flex pa2 justify-between b--light-gray' },
-        _react2.default.createElement(
-          'span',
-          null,
-          '\xDAltima semana'
-        ),
-        _react2.default.createElement(
-          'span',
-          { className: '' + ((0, _Utils.IsNegative)(week) ? "isNegative" : "isPositive") },
-          week,
-          '%'
-        )
-      ),
-      _react2.default.createElement(
-        'li',
-        { className: 'bb list flex pa2 justify-between b--light-gray' },
-        _react2.default.createElement(
-          'span',
-          null,
-          '\xDAltimo m\xEAs'
-        ),
-        _react2.default.createElement(
-          'span',
-          { className: '' + ((0, _Utils.IsNegative)(month) ? "isNegative" : "isPositive") },
-          month,
-          '%'
-        )
-      ),
-      _react2.default.createElement(
-        'li',
-        { className: 'list flex pa2 justify-between b--light-gray' },
-        _react2.default.createElement(
-          'span',
-          null,
-          '\xDAltimos 3 meses'
-        ),
-        _react2.default.createElement(
-          'span',
-          { className: '' + ((0, _Utils.IsNegative)(month_3) ? "isNegative" : "isPositive") },
-          month_3,
-          '%'
-        )
-      )
-    )
+    'p',
+    null,
+    'Loading...'
   );
 };
+
+var CardDetails = function (_React$Component) {
+  _inherits(CardDetails, _React$Component);
+
+  function CardDetails() {
+    _classCallCheck(this, CardDetails);
+
+    return _possibleConstructorReturn(this, (CardDetails.__proto__ || Object.getPrototypeOf(CardDetails)).apply(this, arguments));
+  }
+
+  _createClass(CardDetails, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          day = _props.day,
+          hour = _props.hour,
+          week = _props.week,
+          month = _props.month,
+          month_3 = _props.month_3,
+          value = _props.value;
+
+      var isLoad = day && hour && week && month && month_3 && value;
+      return isLoad ? _react2.default.createElement(
+        'div',
+        { className: 'cupom pt3 pb1 min-w-300 bg-white' },
+        _react2.default.createElement(
+          'h2',
+          { className: 'pl2' },
+          'Bitcoin'
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: 'pl2 mb2 db fw8 fs2' },
+          '$',
+          value
+        ),
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(
+            'li',
+            { className: 'bb list flex pa2 justify-between b--light-gray' },
+            _react2.default.createElement(
+              'span',
+              null,
+              '\xDAltima hora'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: '' + ((0, _Utils.IsNegative)(hour) ? "isNegative" : "isPositive") },
+              hour,
+              '%'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            { className: 'bb list flex pa2 justify-between b--light-gray' },
+            _react2.default.createElement(
+              'span',
+              null,
+              '\xDAltimo Dia'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: '' + ((0, _Utils.IsNegative)(day) ? "isNegative" : "isPositive") },
+              day,
+              '%'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            { className: 'bb list flex pa2 justify-between b--light-gray' },
+            _react2.default.createElement(
+              'span',
+              null,
+              '\xDAltima semana'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: '' + ((0, _Utils.IsNegative)(week) ? "isNegative" : "isPositive") },
+              week,
+              '%'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            { className: 'bb list flex pa2 justify-between b--light-gray' },
+            _react2.default.createElement(
+              'span',
+              null,
+              '\xDAltimo m\xEAs'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: '' + ((0, _Utils.IsNegative)(month) ? "isNegative" : "isPositive") },
+              month,
+              '%'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            { className: 'list flex pa2 justify-between b--light-gray' },
+            _react2.default.createElement(
+              'span',
+              null,
+              '\xDAltimos 3 meses'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: '' + ((0, _Utils.IsNegative)(month_3) ? "isNegative" : "isPositive") },
+              month_3,
+              '%'
+            )
+          )
+        )
+      ) : _react2.default.createElement(Loading, null);
+    }
+  }]);
+
+  return CardDetails;
+}(_react2.default.Component);
 
 exports.default = CardDetails;
 
