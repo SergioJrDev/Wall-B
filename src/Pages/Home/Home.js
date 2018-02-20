@@ -1,5 +1,5 @@
 import React from 'react'
-import { WallB, WatchMarket } from './../../Class'
+import { WallB, WatchMarketToSell } from './../../Class'
 import { connect } from 'react-redux'
 import { setTicket } from './../../Store/Ticket'
 import { CardDetails } from './../../Components'
@@ -12,9 +12,9 @@ const options = {
 const WallBClass = new WallB(options)
 
 const config = {
-  paid: 11187,
-  max: 10,
-  min: 5,
+  paid: 11187, //Valor pago
+  max: 10, //Porcentagem limite de lucro
+  min: 5, //Porcentagem limite de perda
 }
 
 class Home extends React.Component {
@@ -27,7 +27,7 @@ class Home extends React.Component {
         this.props.dispatch(setTicket({ value, day, hour, week, month, month_3 }))
         return data
       })
-      .then(data => WatchMarket(data, config))
+      .then(data => WatchMarketToSell(data, config))
   }
 
   consoleLog = data => console.log(data)

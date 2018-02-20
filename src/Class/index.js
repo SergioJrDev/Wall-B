@@ -1,2 +1,2 @@
 export { default as WallB } from './WallB'
-export { default as WatchMarket } from './WatchMarket'
+export { default as WatchMarketToSell } from './WatchMarketToSell'
