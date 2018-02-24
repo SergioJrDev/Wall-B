@@ -12,7 +12,7 @@ const options = {
 const WallBClass = new WallB(options)
 
 const config = {
-  paid: 11187, //Valor pago
+  paid: 10308, //Valor pago
   max: 10, //Porcentagem limite de lucro
   min: 5, //Porcentagem limite de perda
 }
@@ -30,12 +30,9 @@ class Home extends React.Component {
       .then(data => WatchMarketToSell(data, config))
   }
 
-  consoleLog = data => console.log(data)
-
-
   componentDidMount() {
     this.UpdateBitcoinValue();
-    setInterval(this.UpdateBitcoinValue, 10000);
+    // setInterval(this.UpdateBitcoinValue, 10000);
   }
 
   render() {

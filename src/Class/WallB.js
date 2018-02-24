@@ -25,11 +25,11 @@ class WallBit {
     return this.exchange.fetchBalance()
   }
 
-  createOrderToBuy({ amount, price }, symbol = 'BTC/BRL') {
+  createOrderToBuy(amount, price, symbol = 'BTC/BRL') {
     return this.exchange.createLimitBuyOrder(symbol, amount, price)
   }
 
-  createOrderToSell({ amount, price }, symbol = 'BTC/BRL') {
+  createOrderToSell(amount, price, symbol = 'BTC/BRL') {
     return this.exchange.createLimitSellOrder(symbol, amount, price)
   }
 
