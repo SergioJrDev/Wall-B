@@ -18,16 +18,15 @@ const config = {
 }
 
 class Home extends React.Component {
-
   UpdateBitcoinValue = () => {
     GetBitcoinTrade()
       .then(({ data }) => {
         const { last: value, changes: { percent } } = data;
-        const { day, hour, week, month, month_3 } = percent
-        this.props.dispatch(setTicket({ value, day, hour, week, month, month_3 }))
-        return data
+        const { day, hour, week, month, month_3 } = percent;
+        this.props.dispatch(setTicket({ value, day, hour, week, month, month_3 }));
+        return data;
       })
-      .then(data => WatchMarketToSell(data, config))
+      .then(data => WatchMarketToSell(data, config));
   }
 
   componentDidMount() {
