@@ -7,9 +7,9 @@ class WallBit {
     }
 
     const options = Object.assign({}, optionsDefault, values)
-    const { symbol, delay, apiKey, secret } = options
+    const { symbol, delay, key, secret } = options
     this.exchange = new ccxt.mercado()
-    this.exchange.apiKey = apiKey;
+    this.exchange.apiKey = key;
     this.exchange.secret = secret;
   }
 
